@@ -1,0 +1,175 @@
+* Radio4000 Mécène
+** Introduction and objectives
+
+Support artists you enjoy and listen to.
+
+=Mécène= is a French word finding origin in the personality of
+[[https://en.wikipedia.org/wiki/Gaius_Maecenas][Gaius Maecenas]].
+
+It defines a person, "generous protector of humanities, arts and
+sciences".
+
+In Radio4000, a user would decide to invest a monthly ammount of money
+(=x=), that is shared between the artists you listen to in your
+radio. Let's define for the purpose of this presentation `x = 10`
+euros.
+
+The algorithm used for splitting this ammount should be publicly
+built and discussed. We can experiment with a version of it that
+should be simple to understand, and fair in the shares it creates.
+
+The objectives are multiple. As music listeners, we would like to
+directly support the artists that we enjoy, in an ecosystem of
+softwares and data availability that empowers each user and artist to
+the fullest extend of their capacities.
+
+** Support the artists in your channel
+
+A Radio4000 user is reprenseted by their radio =channel=.
+
+A =channel=, as a data model, has many =track= model. Both models have
+attributes that we can use to determine who to retribute, and for
+which ammount.
+
+Note: this pseudo code uses a syntax similar to javascrip.
+
+#+BEGIN_SRC javascript
+  const channel = {
+      support: 10,
+      currency: 'euro',
+      tracks: [
+	  {
+	      id: 'radio4000-id',
+	      providerId: 'provider:provider-id',
+	      createdDate: 'date-of-addtion-in-channel'
+	  }
+      ]
+  }
+#+END_SRC
+
+So there need to be a fair algorithm making the calculation, on how to
+split the value of =channel.support= between all =tracks= in this
+channel.
+
+Let's start with an example data set, consisting of a user paying 10
+euros monthly. This channel has four youtube tracks; all tracks have
+been posted at one month of interval.
+
+#+BEGIN_SRC javascript
+  const tracks = [
+      {
+	  id: '1',
+	  providerId: 'youtube:1',
+	  createdDate: '2018-01-01'
+      },
+      {
+	  id: '2',
+	  providerId: 'youtube:2',
+	  createdDate: '2018-02-01'
+      },
+      {
+	  id: '3',
+	  providerId: 'youtube:3',
+	  createdDate: '2018-03-01'
+      }{
+	  id: '4',
+	  providerId: 'youtube:4',
+	  createdDate: '2018-04-01'
+      }
+  ]
+
+  const channel = {
+      support: 10,
+      currency: 'euro',
+      tracks
+  }
+#+END_SRC
+
+So this user, owner of the =channel=, decides to invest a montlhy
+ammount of money in supporting music they like.
+
+As a premice, a method to share this money would be to divide the total
+ammount, =10= euros, in =4=, the number of track this channel contains
+in its library. That is =2.5= euros, to each of the tracks right
+holders.
+
+With this method, each music listener maintaining a library of their
+favorite musics, would directly support the artists their care about.
+
+When a user listens to music, they do not only listen to their
+collection, to the music they already know. They digg through other
+sources, other channels.
+
+** Support the artists inside your favorite channels
+
+It is possible to further improve this algorithm by including the
+tracks from the channels a user listens to, and enjoys. We do not
+want to implement user tracking and history analysis to preserve the
+users privacy and freedom.
+
+Some data still publicly exists, as a channel can have favorite
+channels.
+
+The channel model can therefore be updated to the following.
+
+#+BEGIN_SRC javascript
+  const favoriteChannels = [channelA, channelB, channelC];
+
+  const channel = {
+      support: 10,
+      currency: 'euro',
+      tracks,
+      favoriteChannels
+  }
+
+#+END_SRC
+
+The favorite channels, =channel{A,B,C}=, have naturally the same
+properties as the =channel= model, with their own values.
+
+These three channels also have each a certain number of =tracks=.
+
+We can divide the =channel.support= ammount of 10€ between all these
+tracks.
+
+A possible way is to allow an ammount, =y= of the support value, and
+devided them equally between each of these tracks. For the purpose of
+this presentation, let's start with `y = 30%`;
+
+#+BEGIN_SRC javascript
+  const ammount = channel.support
+  const ammountOther = 10 * 30 / 100
+  const ammountOwn = ammount - ammountOther
+
+  const ownTracks = channel.tracks
+  const otherTracks = [
+      ...channelA.tracks,
+      ...channelB.tracks,
+      ...channelC.tracks
+  ]
+
+  const ammountPerOtherTracks = ammountOther / otherTracks.length
+  const ammountPerOtherTracks = ammountOwn / ownTracks.length
+#+END_SRC
+
+** A possible more accurate split
+*** Using adittional data
+The objective of this method is to share an ammount attributed by a
+user between artists they listen to and want to support the work of.
+
+A =track= model has a data attribute `createdDate`, that represents
+the data a track was added to a specific radio channel.
+
+It is possible to imagine that the simple algorithm introduced above
+could be changed to integrate this data. For example, giving more
+weight to the tracks added to a channel during the current month.
+
+*** Using different weights in the calculations
+
+In a channel there are will probably be many tracks for the same
+artist. Should every tracks with the same artist count as one track,
+or should each track count for one track in the final split.
+
+This question is part of many other that should be asked, debated and
+answered to develop a fair algorithm, that should evolve over time to
+reflect the state of agreement between content creators and patrons.
