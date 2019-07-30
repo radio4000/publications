@@ -19,8 +19,6 @@ You can freely export, manage and delete the data you store in these tools. All 
 
 Unless stated otherwise, [all the software created for Radio4000](https://github.com/internet4000/) and Internet4000 are free software, using [GPL-v3](https://www.gnu.org/licenses/gpl-3.0.en.html)and [aGPL-v](https://www.gnu.org/licenses/agpl-3.0.en.html)[3](https://www.gnu.org/licenses/agpl-3.0.en.html).
 
-The websites use [Google Analytics](https://www.google.com/analytics/). You can join the discussion of [this issue on Github](https://github.com/internet4000/radio4000/issues/155), and find more documentation on their [cookie usage](https://developers.google.com/analytics/devguides/collection/analyticsjs/cookie-usage). You can also [opt-out of Google Analytics](https://tools.google.com/dlpage/gaoptout).
-
 The database and API are hosted and served by Google’s [Firebase](https://firebase.google.com/) service. You can query the public data using [its documentation](https://www.eff.org/pages/tools).
 
 If you are interested in helping migrate everything to free software solutions, please [get in touch](https://support.internet4000.com/chat/).
