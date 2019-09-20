@@ -5,7 +5,7 @@ Internet4000 are compliant with the General Data Protection Regulation
 
 If you use the softwares, tools and services edited by [Internet4000](https://internet4000.com/), you agree to this document, and to solve any issues by discussing it with the maintainers and the community.
 
-Internet4000 is an [association](https://fr.wikipedia.org/wiki/Association_loi_de_1901) composed of contributors to its projects, a non-profit organisation registered in France, with the objective to build tools to promote personal and cultural diversity, learning, free softwares and the informed use of terminals and internets. You can find the legal documents here (link in french).
+Internet4000 is an [association](https://fr.wikipedia.org/wiki/Association_loi_de_1901) composed of contributors to its projects, with for objective to build tools to promote personal and cultural diversity, learning, free softwares and the informed use of terminals and internets.
 
 [Radio4000](http://radio4000.com/) is a set of tools that help organize, explore, store and share selections of music explorations. The medias are not hosted by the maintainers of the softwares, which instead store references to data from various providers such as [YouTube](https://www.youtube.com/) videos.
 
