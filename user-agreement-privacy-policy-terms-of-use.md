@@ -19,7 +19,9 @@ You can freely export, manage and delete the data you store in these tools. All 
 
 Unless stated otherwise, [all the software created for Radio4000](https://github.com/internet4000/) and Internet4000 are free software, using [GPL-v3](https://www.gnu.org/licenses/gpl-3.0.en.html)and [aGPL-v](https://www.gnu.org/licenses/agpl-3.0.en.html)[3](https://www.gnu.org/licenses/agpl-3.0.en.html).
 
-The database and API are hosted and served by Google’s [Firebase](https://firebase.google.com/) service. You can query the public data using [its documentation](https://www.eff.org/pages/tools).
+The database is hosted and served by Google’s [Firebase](https://firebase.google.com/) service. You can query the public data using [its documentation](https://github.com/internet4000/radio4000-firebase-rules).
+
+The rest of the api (https://api.radio4000.com) is hosted on https://vercel.com.
 
 If you are interested in helping migrate everything to free software solutions, please [get in touch](https://support.internet4000.com/chat/).
 
