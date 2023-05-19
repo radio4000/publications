@@ -1,5 +1,9 @@
 # publications
-Version control for writings of any type 
+
+A [respository](https://github.com/internet4000/publications) for i4k text publications.
+
+- [./user-agreement-privacy-policy-terms-of-use.md](user-agreement-privacy-policy-terms-of-use)
+- [./radio4000-manifest.md](radio4000-manifest)
 
 # licensing
 
